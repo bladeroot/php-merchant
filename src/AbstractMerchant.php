@@ -108,4 +108,9 @@ abstract class AbstractMerchant implements MerchantInterface
     {
         return $this->responseClass ?: Helper::findClass($this->gateway, $this->library, 'Response');
     }
+
+    public function isActive()
+    {
+        return !array_key_exists('system_state', $this->data) || ($this->data['system_state'] !== 'disabled');
+    }
 }
