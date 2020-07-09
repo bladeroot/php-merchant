@@ -52,6 +52,10 @@ class CompletePurchaseResponse
      * @var string
      */
     protected $payer;
+    /**
+     * @var string
+     */
+    protected $notificationType;
 
     /**
      * @return string
@@ -176,6 +180,25 @@ class CompletePurchaseResponse
     public function setPayer($payer)
     {
         $this->payer = $payer;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNotificationType() : ?null
+    {
+        return $this->notificationType;
+    }
+
+    /**
+     * @param string $notificationType
+     * @return CompletePurchaseResponse
+     */
+    public function setNotificationType($notificationType) : self
+    {
+        $this->notificationType = $notificationType;
 
         return $this;
     }

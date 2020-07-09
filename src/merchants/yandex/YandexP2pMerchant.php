@@ -46,6 +46,7 @@ class YandexP2pMerchant extends AbstractMerchant
         /**
          * @var \Omnipay\YandexMoney\Message\p2p\PurchaseResponse
          */
+
         $response = $this->gateway->purchase([
             'transactionId' => $invoice->getId(),
             'description' => $invoice->getDescription(),
@@ -78,6 +79,7 @@ class YandexP2pMerchant extends AbstractMerchant
             ->setTime(
                 (new \DateTime($response->getTime(), new \DateTimeZone('Europe/Moscow')))
                     ->setTimezone(new \DateTimeZone('UTC'))
-            );
+            )
+            ->setNotificationType($response->getNotificationType());
     }
 }
